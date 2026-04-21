@@ -1,13 +1,28 @@
-import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
-import Navbar from './component/navbar'
+import Sidebar from './component/sidebar'
+import About from './pages/About'
+import Profile from './pages/Profile'
+import Skill from './pages/Skill'
+import Project from './pages/Project'
+import Contact from './pages/Contact'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="bg-blue-100 min-h-screen">
-      <Navbar />
+    <div className="flex min-h-screen bg-gray-100">
+      <div className='w-1/3'>
+        <Sidebar />
+      </div>
+
+      <div className='w-2/5 p-6'>
+        <Routes>
+          <Route path="/" element={<About />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/skill" element={<Skill />} />
+          <Route path="/project" element={<Project />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </div>
     </div>
   )
 }
